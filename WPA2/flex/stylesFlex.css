@@ -1,0 +1,168 @@
+/* Загальні стилі для структури сторінки */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Висота контейнера на всю висоту екрану */
+}
+
+.header {
+    background-color: #b0c4de;
+    padding: 20px;
+    text-align: right;
+    padding-right: 10%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    border: 0.5px solid black;
+}
+
+.main-rect {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Прибираємо скрол усієї сторінки */
+}
+
+.sidebar.left {
+    flex-basis: 200px;
+    background-color: #e0f2be;
+    padding: 20px;
+    border: 0.5px solid black;
+}
+
+.rect-without-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.main-wrapper {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    border-left: 0.5px solid black;
+    overflow: hidden; /* Скрол тільки для main-content */
+}
+
+.main-content {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto; /* Вертикальний скрол тільки тут */
+    border-right: 0.5px solid black;
+    display: flex;
+    flex-wrap: wrap; /* Для відображення зображень у ряд */
+    gap: 20px; /* Відступи між зображеннями */
+}
+
+.sidebar.right {
+    flex-basis: 200px;
+    background-color: #e0f2be;
+    border: 0.5px solid black;
+    border-left: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.b-f-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    border: 0.5px solid black;
+}
+
+.bottom {
+    padding: 20px;
+    background-color: #b0c4de;
+    text-align: right;
+    border: 0.5px solid black;
+}
+
+/* Стилі для зображень */
+.images {
+    display: flex;
+    flex-wrap: wrap; /* Для відображення зображень у ряд */
+    gap: 20px; /* Відступи між зображеннями */
+}
+
+.image-item {
+    flex-basis: calc(50% - 20px); /* Дві колонки по ширині, з відступами */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.images img {
+    width: 100%; /* Не розтягувати зображення, адаптація під контейнер */
+    height: auto; /* Зберегти пропорції зображення */
+    max-height: 200px; /* Максимальна висота для зображень */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.images img:hover {
+    transform: scale(1.1);
+}
+
+/* Sidebar table styling */
+td {
+    padding: 10px 5px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+tr {
+    padding-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0 7px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hover effect for table rows */
+td:hover {
+    background-color: rgb(201, 219, 219);
+    cursor: pointer;
+}
+
+/* Header and bottom text box */
+.h-b-text {
+    padding: 10px; 
+    background-color: white;
+    display: flex;
+    justify-content: center; /* по горизонталі */
+    align-items: center; /* по вертикалі */
+    width: 100%; 
+    max-width: 200px; 
+    text-align: center; 
+    border-radius: 5px; 
+    margin-left: auto; 
+}
+
+.header, .bottom {
+    text-align: right; 
+    padding-right: 10%; 
+}
