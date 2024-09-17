@@ -1,4 +1,3 @@
-/* Загальні стилі для структури сторінки */
 body, html {
     margin: 0;
     padding: 0;
@@ -10,7 +9,7 @@ body, html {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Висота контейнера на всю висоту екрану */
+    height: 100vh; 
 }
 
 .header {
@@ -27,7 +26,7 @@ body, html {
 .main-rect {
     display: flex;
     flex: 1;
-    overflow: hidden; /* Прибираємо скрол усієї сторінки */
+    overflow: hidden; 
 }
 
 .sidebar.left {
@@ -48,18 +47,18 @@ body, html {
     flex: 1;
     background-color: white;
     border-left: 0.5px solid black;
-    overflow: hidden; /* Скрол тільки для main-content */
+    overflow: hidden; 
 }
 
 .main-content {
     flex: 1;
     background-color: #fff;
     padding: 20px;
-    overflow-y: auto; /* Вертикальний скрол тільки тут */
+    overflow-y: auto; 
     border-right: 0.5px solid black;
     display: flex;
-    flex-wrap: wrap; /* Для відображення зображень у ряд */
-    gap: 20px; /* Відступи між зображеннями */
+    flex-wrap: wrap; 
+    gap: 20px; 
 }
 
 .sidebar.right {
@@ -92,15 +91,14 @@ body, html {
     border: 0.5px solid black;
 }
 
-/* Стилі для зображень */
 .images {
     display: flex;
-    flex-wrap: wrap; /* Для відображення зображень у ряд */
-    gap: 20px; /* Відступи між зображеннями */
+    flex-wrap: wrap; /* вью зображень у ряд */
+    gap: 20px; /* спейс між зображеннями */
 }
 
 .image-item {
-    flex-basis: calc(50% - 20px); /* Дві колонки по ширині, з відступами */
+    flex-basis: calc(50% - 20px); 
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -109,9 +107,9 @@ body, html {
 }
 
 .images img {
-    width: 100%; /* Не розтягувати зображення, адаптація під контейнер */
-    height: auto; /* Зберегти пропорції зображення */
-    max-height: 200px; /* Максимальна висота для зображень */
+    width: 300px; 
+    height: 200px;
+    max-height: 200px; 
     margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
@@ -120,7 +118,6 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Sidebar table styling */
 td {
     padding: 10px 5px;
     background-color: white;
@@ -142,13 +139,11 @@ a {
     text-decoration: none;
 }
 
-/* Hover effect for table rows */
 td:hover {
     background-color: rgb(201, 219, 219);
     cursor: pointer;
 }
 
-/* Header and bottom text box */
 .h-b-text {
     padding: 10px; 
     background-color: white;

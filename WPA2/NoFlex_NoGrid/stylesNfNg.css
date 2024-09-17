@@ -1,8 +1,8 @@
-/* Reset default margin and padding */
 
 
 
-/* Додаємо рамку для внутрішніх елементів окремо для кращого вигляду */
+
+
 .container, .header, .main-rect, .left, .rect-without-left, .main-wrapper, .main-content, .sidebar.right, .b-f-col, .footer, .bottom, .images img {
     border: 0.4px solid black;
 }
@@ -13,7 +13,7 @@ body, html {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     height: 100%;
-    overflow: hidden; /* Зупиняємо скрол сторінки */
+    overflow: hidden; 
 }
 
 .container {
@@ -23,7 +23,6 @@ body, html {
     width: 100%;
 }
 
-/* Header styling */
 .header {
     background-color: #b0c4de;
     text-align: right;
@@ -42,14 +41,13 @@ body, html {
     margin-right: auto;
 }
 
-/* Main container */
+
 .main-rect {
     display: flex;
     flex: 1;
     overflow: hidden;
 }
 
-/* Left sidebar */
 .left {
     width: 200px;
     background-color: #e0f2be;
@@ -57,7 +55,6 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Right sidebar */
 .sidebar.right {
     width: 200px;
     background-color: #e0f2be;
@@ -65,7 +62,6 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Main content */
 .rect-without-left {
     flex: 1;
     display: flex;
@@ -78,12 +74,12 @@ body, html {
     overflow: hidden;
 }
 
-/* Контент, що прокручується */
+
 .main-content {
     flex: 1;
     padding: 20px;
     height: 100%;
-    overflow-y: auto; /* Скрол лише для основного контенту */
+    overflow-y: auto; 
     box-sizing: border-box;
 }
 
@@ -111,7 +107,7 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Footer and bottom */
+
 .b-f-col {
     display: flex;
     flex-direction: column;
