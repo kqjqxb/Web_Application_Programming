@@ -27,10 +27,16 @@ body, html {
     grid-area: header;
     background-color: #b0c4de;
     padding: 20px;
-    text-align: right;
     padding-right: 10%;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
 }
+
+.header h1{
+    padding-left: 10px;
+}
+
 .header h3{
 
     display: inline-block;
@@ -82,8 +88,10 @@ td{
     grid-area: bottom;
     background-color: #b0c4de;
     padding: 20px;
-    text-align: right;
     padding-right: 10%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 h2, h3 {

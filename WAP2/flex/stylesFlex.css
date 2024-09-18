@@ -34,6 +34,9 @@ body, html {
     background-color: #e0f2be;
     padding: 20px;
     border: 0.5px solid black;
+    align-items: center;
+    text-align: center;
+    display: flex;
 }
 
 .rect-without-left {
@@ -68,7 +71,8 @@ body, html {
     border-left: none;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .b-f-col {
@@ -89,6 +93,9 @@ body, html {
     background-color: #b0c4de;
     text-align: right;
     border: 0.5px solid black;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .images {
