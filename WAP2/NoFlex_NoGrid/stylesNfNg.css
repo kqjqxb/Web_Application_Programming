@@ -1,8 +1,3 @@
-
-
-
-
-
 .container, .header, .main-rect, .left, .rect-without-left, .main-wrapper, .main-content, .sidebar.right, .b-f-col, .footer, .bottom, .images img {
     border: 0.4px solid black;
 }

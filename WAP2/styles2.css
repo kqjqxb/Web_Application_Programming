@@ -16,7 +16,7 @@ body, html {
     grid-template-rows: auto 1fr auto auto;
     grid-template-columns: 1fr 3fr 1fr;
     height: 100vh;
-    gap: 0; /* мінус спейс між блоками */
+    gap: 0;
 }
 
 .header, .left, .main-content, .right, .footer, .bottom {
@@ -28,25 +28,23 @@ body, html {
     background-color: #b0c4de;
     padding: 20px;
     padding-right: 10%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center; 
 }
 
-.header h1{
+.header h1 {
     padding-left: 10px;
-}
-
-.header h3{
-
-    display: inline-block;
 }
 
 .left {
     grid-area: left;
     background-color: #e0f2be;
     padding: 20px;
-    overflow-y: auto;
+    text-align: center;
+    display: grid;
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: center; /* Вирівнювання по горизонталі */
 }
 
 .main-content {
@@ -60,20 +58,21 @@ body, html {
     grid-area: right;
     background-color: #e0f2be;
     padding: 20px;
-    overflow-y: auto;
+    display: grid;
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: center; /* Вирівнювання по горизонталі */
     text-align: center;
 }
 
-td:hover{
+td:hover {
     background-color: rgb(201, 219, 219);
     cursor: pointer;
 }
 
-td{
+td {
     padding: 10px 5px;
     background-color: white;
     border-radius: 10px;
-
 }
 
 .footer {
@@ -81,17 +80,15 @@ td{
     padding: 20px;
     background-color: #fff;
     text-align: center;
-    overflow-y: auto;
 }
 
 .bottom {
     grid-area: bottom;
     background-color: #b0c4de;
     padding: 20px;
-    padding-right: 10%;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
 }
 
 h2, h3 {
@@ -102,50 +99,31 @@ h2, h3 {
 .h-b-text {
     padding: 10px; 
     background-color: white;
-    display: flex;
-    justify-content: center; /* по горизонталі */
-    align-items: center; /* по вертикалі */
-    width: 100%; 
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     max-width: 200px; 
     text-align: center; 
     border-radius: 5px; 
-    margin-left: auto; 
 }
 
-.header, .bottom {
-    text-align: right; 
-    padding-right: 10%; 
+.bottom h2{
+    margin-right: 12vw;
 }
-
-
-table {
-    width: 100%;
-    border-spacing: 0 7px; 
-}
-
-a {
-    color: black; 
-    text-decoration: none; 
-}
-
-
 
 .images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px; /* спейс між блоками */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .image-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
 .images img {
-    width: 300px; 
+    width: 300px;
     height: 200px;
     margin-bottom: 10px;
     transition: transform 0.3s ease;
@@ -155,26 +133,12 @@ a {
     transform: scale(1.1);
 }
 
-
-
-.centered-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px; 
-    margin: 0 auto; 
-    text-align: left; 
+table {
+    width: 100%;
+    border-spacing: 0 7px;
 }
 
-.centered-content p {
-    margin: 10px 0; 
-    text-align: left;
+a {
+    color: black; 
+    text-decoration: none;
 }
-
-.centered-image {
-    width: 80%; 
-    max-width: 400px; 
-    height: auto; 
-    margin-top: 15px; 
-}
-
