@@ -15,6 +15,9 @@ html {
     background-color: #fff;
 }
 
+
+
+
 .container {
     position: relative;
     width: 100%;
@@ -50,6 +53,15 @@ html {
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+.hover-image {
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.hover-image:hover {
+    content: url('./image-hover.png'); /* Заміна зображення на інше */
 }
 
 .top-text {
