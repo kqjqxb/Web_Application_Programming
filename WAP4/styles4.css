@@ -61,7 +61,7 @@ html {
 }
 
 .hover-image:hover {
-    content: url('./image-hover.png'); /* Заміна зображення на інше */
+    content: url('./image-hover.png'); 
 }
 
 .top-text {
@@ -136,18 +136,14 @@ html {
     .top-text {
         position: absolute;
         top: 15%;
-        /* Відступ від верхнього краю */
         left: 70%;
         transform: translateX(-50%);
-        /* Центрування по горизонталі */
         width: 100%;
-        /* Щоб займати всю ширину контейнера */
         max-width: 100%;
         font-size: 1.2rem;
         color: #333;
         z-index: 2;
         text-align: left;
-        /* Центрування тексту всередині блоку */
     }
 
 
