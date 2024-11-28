@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Pets</h1>
+            <h2 class="h-b-text" id="text-x">Main page</h2>
+            <button id="swap-texts">Swap Texts</button>
+        </div>
+
+        <div class="sidebar left">
+            <div class="alignment-options">
+                <label><input type="radio" name="alignment" value="left"> Align Left</label>
+                <label><input type="radio" name="alignment" value="center"> Align Center</label>
+                <label><input type="radio" name="alignment" value="right"> Align Right</label>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <p>(3)</p>
+            <form id="trapezoid-form">
+                <input type="number" id="side-a" placeholder="Side a">
+                <input type="number" id="side-b" placeholder="Side b">
+                <input type="number" id="height-h" placeholder="Height h">
+                <button type="submit">Calculate Area</button>
+            </form>
+        </div>
+
+        <div class="sidebar right">
+            <table>
+                <tr>
+                    <td>Koala</td>
+                </tr>
+                <tr>
+                    <td>Tiger</td>
+                </tr>
+                <tr>
+                    <td>Panda</td>
+                </tr>
+                <tr>
+                    <td>Seal</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="footer">
+            <h4>There were animals here, did you see them?</h4>
+        </div>
+
+        <div class="bottom">
+            <h6>&copy; All rights reserved</h6>
+            <h2 class="h-b-text" id="text-y">Lab 5</h2>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const getCookie = (name) => {
+                const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+                    const [key, value] = cookie.split("=");
+                    acc[key] = value;
+                    return acc;
+                }, {});
+                return cookies[name];
+            };
+
+            const deleteCookie = (name) => {
+                document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            };
+
+            const resetChanges = () => {
+                const textX = document.getElementById("text-x");
+                const textY = document.getElementById("text-y");
+
+                textX.innerText = "Main page";
+                textY.innerText = "Lab 5";
+
+                localStorage.clear();
+            };
+
+            const applySavedChanges = () => {
+                const savedTextX = localStorage.getItem("textX");
+                const savedTextY = localStorage.getItem("textY");
+
+                const textX = document.getElementById("text-x");
+                const textY = document.getElementById("text-y");
+
+                if (savedTextX !== null && savedTextY !== null) {
+                    textX.innerText = savedTextX;
+                    textY.innerText = savedTextY;
+                }
+            };
+
+            const modal = document.createElement("div");
+            modal.style.position = "fixed";
+            modal.style.top = "50%";
+            modal.style.left = "50%";
+            modal.style.transform = "translate(-50%, -50%)";
+            modal.style.backgroundColor = "white";
+            modal.style.border = "1px solid black";
+            modal.style.padding = "20px";
+            modal.style.zIndex = "1000";
+            modal.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
+
+            modal.innerHTML = `
+            <p>Do you accept cookies to load saved changes?</p>
+            <button id="accept-cookies">Accept</button>
+            <button id="decline-cookies">Decline</button>
+        `;
+            document.body.appendChild(modal);
+
+            document.getElementById("accept-cookies").addEventListener("click", () => {
+                document.cookie = "cookiesAccepted=true; path=/;";
+                applySavedChanges();
+                modal.remove();
+            });
+
+            document.getElementById("decline-cookies").addEventListener("click", () => {
+                deleteCookie("cookiesAccepted");
+                resetChanges();
+                modal.remove();
+                alert("Changes have been reset.");
+            });
+
+            if (getCookie("cookiesAccepted") === "true") {
+                applySavedChanges();
+            }
+        });
+        // таска 1: збереження текстів в locStor
+        const swapButton = document.getElementById("swap-texts");
+
+        const textX = document.getElementById("text-x");
+        const textY = document.getElementById("text-y");
+
+        const saveTexts = () => {
+            localStorage.setItem("textX", textX.innerText);
+            localStorage.setItem("textY", textY.innerText);
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTextX = localStorage.getItem("textX");
+            const savedTextY = localStorage.getItem("textY");
+
+            if (savedTextX !== null && savedTextY !== null) {
+                textX.innerText = savedTextX;
+                textY.innerText = savedTextY;
+            }
+        });
+
+        swapButton.addEventListener("click", () => {
+            const temp = textX.innerText;
+            textX.innerText = textY.innerText;
+            textY.innerText = temp;
+
+            saveTexts();
+        });
+
+
+        // таска 2: площа трапеції
+        const trapezoidForm = document.getElementById("trapezoid-form");
+        trapezoidForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const a = parseFloat(document.getElementById("side-a").value);
+            const b = parseFloat(document.getElementById("side-b").value);
+            const h = parseFloat(document.getElementById("height-h").value);
+            const area = ((a + b) / 2) * h;
+            const resultParagraph = document.createElement("p");
+            resultParagraph.innerText = `The area of the trapezoid is: ${area}`;
+            document.querySelector(".main-content").appendChild(resultParagraph);
+        });
+
+        // таска 3: перевернуте число
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.createElement("form");
+            const input = document.createElement("input");
+            input.type = "number";
+            input.name = "number";
+            const button = document.createElement("button");
+            button.type = "submit";
+            button.innerText = "Reverse Number";
+            form.appendChild(input);
+            form.appendChild(button);
+            document.querySelector(".main-content").appendChild(form);
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const number = input.value;
+                const reversedNumber = number.split('').reverse().join('');
+                alert(`Reversed Number: ${reversedNumber}`);
+                document.cookie = `reversedNumber=${reversedNumber}; path=/;`;
+            });
+
+            const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+                const [name, value] = cookie.split("=");
+                acc[name] = value;
+                return acc;
+            }, {});
+
+            if (cookies.reversedNumber) {
+                if (confirm(`Saved reversed number: ${cookies.reversedNumber}. Do you want to keep it?`)) {
+                    alert("Cookies are kept. Please reload the page.");
+                } else {
+                    document.cookie = "reversedNumber=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    location.reload();
+                }
+            }
+        });
+
+        // таска 4: елайн контенту та збереження в locStor
+        const blocks = [".sidebar.left", ".main-content", ".sidebar.right"];
+        const alignContent = (alignment) => {
+            blocks.forEach(selector => {
+                document.querySelector(selector).style.textAlign = alignment;
+            });
+            localStorage.setItem("alignment", alignment);
+        };
+
+        document.querySelectorAll("input[name=alignment]").forEach(radio => {
+            radio.addEventListener("click", (event) => {
+                alignContent(event.target.value);
+            });
+        });
+
+        const savedAlignment = localStorage.getItem("alignment");
+        if (savedAlignment) {
+            alignContent(savedAlignment);
+            document.querySelector(`input[name=alignment][value=${savedAlignment}]`).checked = true;
+        }
+
+        // таска 5: список
+        document.addEventListener("DOMContentLoaded", () => {
+            const block = document.querySelector(".main-content");
+            const list = document.createElement("ol");
+            const input = document.createElement("input");
+            const addButton = document.createElement("button");
+
+            addButton.textContent = "Додати";
+            input.placeholder = "Введіть пункт";
+
+            block.appendChild(list);
+            block.appendChild(input);
+            block.appendChild(addButton);
+
+            addButton.addEventListener("click", () => {
+                const text = input.value;
+                if (text.trim()) {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = text;
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Видалити";
+                    deleteButton.addEventListener("click", () => {
+                        list.removeChild(listItem);
+                    });
+
+                    listItem.appendChild(deleteButton);
+                    list.appendChild(listItem);
+                    input.value = "";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
